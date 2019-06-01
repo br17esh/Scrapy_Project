@@ -45,7 +45,30 @@ class Spiderman(scrapy.Spider):
         obs = response.xpath("//li/text()").extract()
         tabvar = response.xpath("//table/tr/td/text()").extract()
 
-
+        #############################################################################################################
+        # sql = "INSERT INTO dqrreport_topnoise (UID,PP_QA1_DID,PP_QA1_PID,PP_QA1_CNT,PP_QA1_SG,QP_QA1_MN,QP_QA1_MD,QP_QA1_SG," \
+        #       "PP_QA2_DID,PP_QA2_PID,PP_QA2_CNT,PP_QA2_SG,QP_QA2_MN,QP_QA2_MD,QP_QA2_SG," \
+        #       "PP_QA3_DID,PP_QA3_PID,PP_QA3_CNT,PP_QA3_SG,QP_QA3_MN,QP_QA3_MD,QP_QA3_SG," \
+        #       "PP_QB1_DID,PP_QB1_PID,PP_QB1_CNT,PP_QB1_SG,QP_QB1_MN,QP_QB1_MD,QP_QB1_SG," \
+        #       "PP_QB2_DID,PP_QB2_PID,PP_QB2_CNT,PP_QB2_SG,QP_QB2_MN,QP_QB2_MD,QP_QB2_SG," \
+        #       "PP_QB3_DID,PP_QB3_PID,PP_QB3_CNT,PP_QB3_SG,QP_QB3_MN,QP_QB3_MD,QP_QB3_SG," \
+        #       "PP_QC1_DID,PP_QC1_PID,PP_QC1_CNT,PP_QC1_SG,QP_QC1_MN,QP_QC1_MD,QP_QC1_SG," \
+        #       "PP_QC2_DID,PP_QC2_PID,PP_QC2_CNT,PP_QC2_SG,QP_QC2_MN,QP_QC2_MD,QP_QC2_SG," \
+        #       "PP_QC3_DID,PP_QC3_PID,PP_QC3_CNT,PP_QC3_SG,QP_QC3_MN,QP_QC3_MD,QP_QC3_SG," \
+        #       "PP_QD1_DID,PP_QD1_PID,PP_QD1_CNT,PP_QD1_SG,QP_QD1_MN,QP_QD1_MD,QP_QD1_SG," \
+        #       "PP_QD2_DID,PP_QD2_PID,PP_QD2_CNT,PP_QD2_SG,QP_QD2_MN,QP_QD2_MD,QP_QD2_SG," \
+        #       "PP_QD3_DID,PP_QD3_PID,PP_QD3_CNT,PP_QD3_SG,QP_QD3_MN,QP_QD3_MD,QP_QD3_SG,) VALUES " \
+        #       "(2018020607,'"+tabvar[109]+"','"+tabvar[110]+"','"+tabvar[111]+"','"+tabvar[112]+"','"+tabvar[113]+"','"+tabvar[114]+"','"+tabvar[115]+"','"+tabvar[116]+"','"+tabvar[117]+"','"+tabvar[118]+"','"+tabvar[119]+"','"+tabvar[120]+"','"+tabvar[121]+"','"+tabvar[122]+"','"+tabvar[123]+"','"+tabvar[124]+"','"+tabvar[125]+"','"+tabvar[126]+"','"+tabvar[127]+"','"+tabvar[128]+"','"+tabvar[129]+"','"+tabvar[130]+"','"+tabvar[131]+"','"+tabvar[132]+"','"+tabvar[133]+"','"+tabvar[134]+"','"+tabvar[135]+"','"+tabvar[136]+"','"+tabvar[137]+"','"+tabvar[138]+"','"+tabvar[139]+"','"+tabvar[140]+"','"+tabvar[141]+"','"+tabvar[142]+"','"+tabvar[143]+"','"+tabvar[144]+"','"+tabvar[145]+"','"+tabvar[146]+"','"+tabvar[147]+"','"+tabvar[148]+"','"+tabvar[149]+"','"+tabvar[150]+"','"+tabvar[151]+"','"+tabvar[152]+"','"+tabvar[153]+"','"+tabvar[154]+"','"+tabvar[155]+"','"+tabvar[156]+"','"+tabvar[157]+"','"+tabvar[158]+"','"+tabvar[159]+"','"+tabvar[160]+"','"+tabvar[161]+"','"+tabvar[162]+"','"+tabvar[163]+"','"+tabvar[164]+"','"+tabvar[165]+"','"+tabvar[166]+"','"+tabvar[167]+"','"+tabvar[168]+"','"+tabvar[169]+"','"+tabvar[170]+"','"+tabvar[171]+"','"+tabvar[172]+"','"+tabvar[173]+"','"+tabvar[174]+"','"+tabvar[175]+"','"+tabvar[176]+"','"+tabvar[177]+"','"+tabvar[178]+"','"+tabvar[179]+"','"+tabvar[180]+"','"+tabvar[181]+"','"+tabvar[182]+"','"+tabvar[183]+"','"+tabvar[184]+"','"+tabvar[185]+"','"+tabvar[186]+"','"+tabvar[187]+"','"+tabvar[188]+"','"+tabvar[189]+"','"+tabvar[190]+"','"+tabvar[191]+"','"+tabvar[192]+"')"
+        #
+        # # ,'"+tabvar[193]+"','"+tabvar[194]+"','"+tabvar[195]+"','"+tabvar[196]+"','"+tabvar[197]+"','"+tab
+        # #         var[198]+"','"+tabvar[199]+"','"+tabvar[200]+"','"+tabvar[201]+"','"+tabvar[202]+"','"+tab
+        # #         var[203]+"','"+tabvar[204]+"','"+tabvar[205]+"','"+tabvar[206]+"','"+tabvar[207]+"','"+tab
+        # #         var[208]+"','"+tabvar[209]+"','"+tabvar[210]+"','"+tabvar[211]+"','"+tabvar[212]+"','"+tab
+        # #         var[213]+"','"+tabvar[214]+"','"+tabvar[215]+"','"+tabvar[216]+"','"+tabvar[217]+"','"+tab
+        # #         var[218]+"','"+tabvar[219]+"','"+tabvar[220]+"','"+tabvar[221]+"'
+        #
+        # mycursor.execute(sql)
+        # mydb.commit()
         ################################################################################################################
         # global housekeep
         #
@@ -65,14 +88,11 @@ class Spiderman(scrapy.Spider):
         # hk14 = 'http://192.168.43.12/ASTROSAT_SAMPLE_DATA/' + dirlist[housekeep] + '/hk_VetoCounter.png'
         #
         #
-        # print("hello")
-        #
-        # print(hk1)
-        # print(hk2)
+        # sql = "INSERT INTO dqrreport_housekeeping (UID,plot1,plot2,plot3,plot4,plot5,plot6,plot7,plot8,plot9,plot10,plot11,plot12,plot13,plot14) VALUES (2018020607,'"+hk1+"','"+hk2+"','"+hk3+"','"+hk4+"','"+hk5+"','"+hk6+"','"+hk7+"','"+hk8+"','"+hk9+"','"+hk10+"','"+hk11+"','"+hk12+"','"+hk13+"','"+hk14+"')"
+        # mycursor.execute(sql)
+        # mydb.commit()
         #
         # housekeep +=1
-
-
 
         #################################################################################################################
         # global countrate
@@ -90,9 +110,9 @@ class Spiderman(scrapy.Spider):
         # crp6 = 'http://192.168.43.12/ASTROSAT_SAMPLE_DATA/' + dirlist[countrate] + '/countrate_modulerates.Q3.png'
         # cri6 = 'http://192.168.43.12/ASTROSAT_SAMPLE_DATA/' + dirlist[countrate] + '/imageQ3.png'
         #
-        # print("Hello")
-        # print(crp1)
-        # print(cri1)
+        # sql = "INSERT INTO dqrreport_countrate (UID,crplot1,crimg1,crplot2,crimg2,crplot3,crimg3,crplot4,crimg4,crplot5,crimg5,crplot6,crimg6) VALUES (2018020607, '"+crp1+"', '"+cri1+"', '"+crp2+"', '"+cri2+"', '"+crp3+"', '"+cri3+"', '"+crp4+"', '"+cri4+"', '"+crp5+"', '"+cri5+"', '"+crp6+"', '"+cri6+"')"
+        # mycursor.execute(sql)
+        # mydb.commit()
         # countrate += 1
 
         ################################################################################################################
@@ -103,11 +123,6 @@ class Spiderman(scrapy.Spider):
         # dphimg1 = 'http://192.168.43.12/ASTROSAT_SAMPLE_DATA/' + dirlist[dphcount] + '/dph.Q1.png'
         # dphimg2 = 'http://192.168.43.12/ASTROSAT_SAMPLE_DATA/' + dirlist[dphcount] + '/dph.Q2.png'
         # dphimg3 = 'http://192.168.43.12/ASTROSAT_SAMPLE_DATA/' + dirlist[dphcount] + '/dph.Q3.png'
-        #
-        # print(dphimg0)
-        # print(dphimg1)
-        # print(dphimg2)
-        # print(dphimg3)
         #
         # dphcount += 1
 
@@ -189,12 +204,12 @@ class Spiderman(scrapy.Spider):
         #     mycursor.execute(sql)
         #     mydb.commit()
         #
-        # # if b[0] == "date-obs" and b[1] == "time-obs" and b[2] == "date-end" and b[3] == "time-end" and b[
-        # #     4] == "obs_id" and b[5] == "sourceid" and b[6] == "observer" and b[7] == "ra_pnt" and \
-        # #         b[8] == "dec_pnt":
-        # #     sql = "INSERT INTO dqrreport_obsinfo (date_obs,time_obs,date_end,time_end,obs_id,exposure,sourceid,observer,ra_pnt,dec_pnt,UID) VALUES ('" + obs[0] + "', '" + obs[1] + "', '" + obs[2] + "', '" + obs[3] + "', '" + obs[4] + "', 0, '" + obs[5] + "', '" + obs[6] + "', '" + obs[7] + "', '" + obs[8] + "', 2018020607)"
-        # #     mycursor.execute(sql)
-        # #     mydb.commit()
+        # if b[0] == "date-obs" and b[1] == "time-obs" and b[2] == "date-end" and b[3] == "time-end" and b[
+        #     4] == "obs_id" and b[5] == "sourceid" and b[6] == "observer" and b[7] == "ra_pnt" and \
+        #         b[8] == "dec_pnt":
+        #     sql = "INSERT INTO dqrreport_obsinfo (date_obs,time_obs,date_end,time_end,obs_id,exposure,sourceid,observer,ra_pnt,dec_pnt,UID) VALUES ('" + obs[0] + "', '" + obs[1] + "', '" + obs[2] + "', '" + obs[3] + "', '" + obs[4] + "', 'NA', '" + obs[5] + "', '" + obs[6] + "', '" + obs[7] + "', '" + obs[8] + "', 2018020607)"
+        #     mycursor.execute(sql)
+        #     mydb.commit()
         #
         # if b[0] == "date-obs" and b[1] == "time-obs" and b[2] == "date-end" and b[3] == "time-end" and b[
         #     4] == "obs_id" and b[5] == "exposure" and b[6] != "sourceid" and b[7] == "observer" and b[8] == "ra_pnt" and \
