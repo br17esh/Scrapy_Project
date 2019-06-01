@@ -20,7 +20,7 @@ mycursor = mydb.cursor()
 
 dirlist = sorted(os.listdir("/opt/lampp/htdocs/ASTROSAT_SAMPLE_DATA/"))
 
-pprint(dirlist)
+#pprint(dirlist)
 
 path = []
 
@@ -44,8 +44,74 @@ class Spiderman(scrapy.Spider):
         b = response.xpath("//li/b/text()").extract()
         obs = response.xpath("//li/text()").extract()
         tabvar = response.xpath("//table/tr/td/text()").extract()
+        mode = response.xpath("//table/tr/th/text()").extract()
 
-        #############################################################################################################
+        ###########################################################################################################################################################
+        # if(mode[3] == "Mode M9"):
+        #     sql = "INSERT INTO dqrreport_datainteg (UID,M9_A_BD,M9_A_TP,M9_A_DP,M9_B_BD,M9_B_TP,M9_B_DP,M9_C_BD,M9_C_TP,M9_C_DP,M9_D_BD,M9_D_TP,M9_D_DP,M0_A_BD,M0_A_TP,M0_A_DP,M0_B_BD,M0_B_TP,M0_B_DP,M0_C_BD,M0_C_TP,M0_C_DP,M0_D_BD,M0_D_TP,M0_D_DP,SS_A_BD,SS_A_TP,SS_A_DP,SS_B_BD,SS_B_TP,SS_B_DP,SS_C_BD,SS_C_TP,SS_C_DP,SS_D_BD,SS_D_TP,SS_D_DP) VALUES (2018020606, '" + \
+        #     tabvar[22] + "','" + tabvar[23] + "','" + tabvar[24] + "','" + tabvar[26] + "','" + tabvar[27] + "','" + tabvar[
+        #         28] + "','" + tabvar[30] + "','" + tabvar[31] + "','" + tabvar[32] + "','" + tabvar[34] + "','" + tabvar[
+        #         35] + "','" + tabvar[36] + "','" + tabvar[38] + "','" + tabvar[39] + "','" + tabvar[40] + "','" + tabvar[
+        #         42] + "','" + tabvar[43] + "','" + tabvar[44] + "','" + tabvar[46] + "','" + tabvar[47] + "','" + tabvar[
+        #         48] + "','" + tabvar[50] + "','" + tabvar[51] + "','" + tabvar[52] + "','" + tabvar[54] + "','" + tabvar[
+        #         55] + "','" + tabvar[56] + "','" + tabvar[58] + "','" + tabvar[59] + "','" + tabvar[60] + "','" + tabvar[
+        #         62] + "','" + tabvar[63] + "','" + tabvar[64] + "','" + tabvar[66] + "','" + tabvar[67] + "','" + tabvar[
+        #         68] + "')"
+        #     mycursor.execute(sql)
+        #     mydb.commit()
+        #
+        # if(mode[3] == "Mode M0"):
+        #     sql = "INSERT INTO dqrreport_datainteg (UID,M0_A_BD,M0_A_TP,M0_A_DP,M0_B_BD,M0_B_TP,M0_B_DP,M0_C_BD,M0_C_TP,M0_C_DP,M0_D_BD,M0_D_TP,M0_D_DP,M9_A_BD,M9_A_TP,M9_A_DP,M9_B_BD,M9_B_TP,M9_B_DP,M9_C_BD,M9_C_TP,M9_C_DP,M9_D_BD,M9_D_TP,M9_D_DP,SS_A_BD,SS_A_TP,SS_A_DP,SS_B_BD,SS_B_TP,SS_B_DP,SS_C_BD,SS_C_TP,SS_C_DP,SS_D_BD,SS_D_TP,SS_D_DP) VALUES (2018020606, '" + \
+        #           tabvar[22] + "','" + tabvar[23] + "','" + tabvar[24] + "','" + tabvar[26] + "','" + tabvar[
+        #               27] + "','" + tabvar[
+        #               28] + "','" + tabvar[30] + "','" + tabvar[31] + "','" + tabvar[32] + "','" + tabvar[34] + "','" + \
+        #           tabvar[
+        #               35] + "','" + tabvar[36] + "','" + tabvar[38] + "','" + tabvar[39] + "','" + tabvar[40] + "','" + \
+        #           tabvar[
+        #               42] + "','" + tabvar[43] + "','" + tabvar[44] + "','" + tabvar[46] + "','" + tabvar[47] + "','" + \
+        #           tabvar[
+        #               48] + "','" + tabvar[50] + "','" + tabvar[51] + "','" + tabvar[52] + "','" + tabvar[54] + "','" + \
+        #           tabvar[
+        #               55] + "','" + tabvar[56] + "','" + tabvar[58] + "','" + tabvar[59] + "','" + tabvar[60] + "','" + \
+        #           tabvar[
+        #               62] + "','" + tabvar[63] + "','" + tabvar[64] + "','" + tabvar[66] + "','" + tabvar[67] + "','" + \
+        #           tabvar[
+        #               68] + "')"
+        #     mycursor.execute(sql)
+        #     mydb.commit()
+        #
+        # if(mode[3] == "Mode SS"):
+        #     sql = "INSERT INTO dqrreport_datainteg (UID,SS_A_BD,SS_A_TP,SS_A_DP,SS_B_BD,SS_B_TP,SS_B_DP,SS_C_BD,SS_C_TP,SS_C_DP,SS_D_BD,SS_D_TP,SS_D_DP,M9_A_BD,M9_A_TP,M9_A_DP,M9_B_BD,M9_B_TP,M9_B_DP,M9_C_BD,M9_C_TP,M9_C_DP,M9_D_BD,M9_D_TP,M9_D_DP,M0_A_BD,M0_A_TP,M0_A_DP,M0_B_BD,M0_B_TP,M0_B_DP,M0_C_BD,M0_C_TP,M0_C_DP,M0_D_BD,M0_D_TP,M0_D_DP) VALUES (2018020606, '" + \
+        #           tabvar[22] + "','" + tabvar[23] + "','" + tabvar[24] + "','" + tabvar[26] + "','" + tabvar[
+        #               27] + "','" + tabvar[
+        #               28] + "','" + tabvar[30] + "','" + tabvar[31] + "','" + tabvar[32] + "','" + tabvar[34] + "','" + \
+        #           tabvar[
+        #               35] + "','" + tabvar[36] + "','" + tabvar[38] + "','" + tabvar[39] + "','" + tabvar[40] + "','" + \
+        #           tabvar[
+        #               42] + "','" + tabvar[43] + "','" + tabvar[44] + "','" + tabvar[46] + "','" + tabvar[47] + "','" + \
+        #           tabvar[
+        #               48] + "','" + tabvar[50] + "','" + tabvar[51] + "','" + tabvar[52] + "','" + tabvar[54] + "','" + \
+        #           tabvar[
+        #               55] + "','" + tabvar[56] + "','" + tabvar[58] + "','" + tabvar[59] + "','" + tabvar[60] + "','" + \
+        #           tabvar[
+        #               62] + "','" + tabvar[63] + "','" + tabvar[64] + "','" + tabvar[66] + "','" + tabvar[67] + "','" + \
+        #           tabvar[
+        #               68] + "')"
+        #     mycursor.execute(sql)
+        #     mydb.commit()
+        ########################################################################################################################################
+        # sql = "INSERT INTO dqrreport_datainteg (UID,M9_A_BD,M9_A_TP,M9_A_DP,M9_B_BD,M9_B_TP,M9_B_DP,M9_C_BD,M9_C_TP,M9_C_DP,M9_D_BD,M9_D_TP,M9_D_DP,M0_A_BD,M0_A_TP,M0_A_DP,M0_B_BD,M0_B_TP,M0_B_DP,M0_C_BD,M0_C_TP,M0_C_DP,M0_D_BD,M0_D_TP,M0_D_DP,SS_A_BD,SS_A_TP,SS_A_DP,SS_B_BD,SS_B_TP,SS_B_DP,SS_C_BD,SS_C_TP,SS_C_DP,SS_D_BD,SS_D_TP,SS_D_DP) VALUES (2018020606, '" + \
+        # tabvar[22] + "','" + tabvar[23] + "','" + tabvar[24] + "','" + tabvar[26] + "','" + tabvar[27] + "','" + tabvar[
+        #     28] + "','" + tabvar[30] + "','" + tabvar[31] + "','" + tabvar[32] + "','" + tabvar[34] + "','" + tabvar[
+        #     35] + "','" + tabvar[36] + "','" + tabvar[38] + "','" + tabvar[39] + "','" + tabvar[40] + "','" + tabvar[
+        #     42] + "','" + tabvar[43] + "','" + tabvar[44] + "','" + tabvar[46] + "','" + tabvar[47] + "','" + tabvar[
+        #     48] + "','" + tabvar[50] + "','" + tabvar[51] + "','" + tabvar[52] + "','" + tabvar[54] + "','" + tabvar[
+        #     55] + "','" + tabvar[56] + "','" + tabvar[58] + "','" + tabvar[59] + "','" + tabvar[60] + "','" + tabvar[
+        #     62] + "','" + tabvar[63] + "','" + tabvar[64] + "','" + tabvar[66] + "','" + tabvar[67] + "','" + tabvar[
+        #     68] + "')"
+        # mycursor.execute(sql)
+        # mydb.commit()
+        ###############################################################################################################################################
         # sql = "INSERT INTO dqrreport_topnoise (UID,PP_QA1_DID,PP_QA1_PID,PP_QA1_CNT,PP_QA1_SG,QP_QA1_MN,QP_QA1_MD,QP_QA1_SG," \
         #       "PP_QA2_DID,PP_QA2_PID,PP_QA2_CNT,PP_QA2_SG,QP_QA2_MN,QP_QA2_MD,QP_QA2_SG," \
         #       "PP_QA3_DID,PP_QA3_PID,PP_QA3_CNT,PP_QA3_SG,QP_QA3_MN,QP_QA3_MD,QP_QA3_SG," \
@@ -69,7 +135,7 @@ class Spiderman(scrapy.Spider):
         #
         # mycursor.execute(sql)
         # mydb.commit()
-        ################################################################################################################
+        ##################################################################################################################################################
         # global housekeep
         #
         # hk1 =  'http://192.168.43.12/ASTROSAT_SAMPLE_DATA/' + dirlist[housekeep] + '/hk_CZT_Counter.png'
@@ -94,7 +160,7 @@ class Spiderman(scrapy.Spider):
         #
         # housekeep +=1
 
-        #################################################################################################################
+        ###################################################################################################################################################
         # global countrate
         #
         # crp1 = 'http://192.168.43.12/ASTROSAT_SAMPLE_DATA/' + dirlist[countrate] + '/countrate_histogram.png'
@@ -115,7 +181,7 @@ class Spiderman(scrapy.Spider):
         # mydb.commit()
         # countrate += 1
 
-        ################################################################################################################
+        ##################################################################################################################################################
 
         # global dphcount
         #
@@ -136,7 +202,7 @@ class Spiderman(scrapy.Spider):
         # dphcount += 1
 
 
-        #####################################################################################################
+        #######################################################################################################################################
 
         # global ndfcount
         # noisyimg0 = 'http://192.168.43.12/ASTROSAT_SAMPLE_DATA/' + dirlist[ndfcount] + '/noisytime.Q0.png'
@@ -152,33 +218,20 @@ class Spiderman(scrapy.Spider):
         #
         # ndfcount += 1
 
-        ##########################################################################################################
+        ############################################################################################################################################
 
         # sql = "INSERT INTO dqrreport_dqrstats (filename_OF,filename_FF,size_bytes_OF,size_bytes_FF,size_OF,size_FF,events_quadA_OF,events_quadA_FF,events_quadB_OF,events_quadB_FF, events_quadC_OF, events_quadC_FF, events_quadD_OF, events_quadD_FF, UID) VALUES('"+tabvar[1]+"', '"+tabvar[2]+"', '"+tabvar[4]+"', '"+tabvar[5]+"','"+tabvar[7]+"', '"+tabvar[8]+"', '"+tabvar[10]+"', '"+tabvar[11]+"', '"+tabvar[13]+"', '"+tabvar[14]+"', '"+tabvar[16]+"', '"+tabvar[17]+"', '"+tabvar[19]+"', '"+tabvar[20]+"', 2018020606)"
         #
         # mycursor.execute(sql)
         # mydb.commit()
-
-        ##################################
-        # sql = "INSERT INTO dqrreport_datainteg (UID,M9_A_BD,M9_A_TP,M9_A_DP,M9_B_BD,M9_B_TP,M9_B_DP,M9_C_BD,M9_C_TP,M9_C_DP,M9_D_BD,M9_D_TP,M9_D_DP,M0_A_BD,M0_A_TP,M0_A_DP,M0_B_BD,M0_B_TP,M0_B_DP,M0_C_BD,M0_C_TP,M0_C_DP,M0_D_BD,M0_D_TP,M0_D_DP,SS_A_BD,SS_A_TP,SS_A_DP,SS_B_BD,SS_B_TP,SS_B_DP,SS_C_BD,SS_C_TP,SS_C_DP,SS_D_BD,SS_D_TP,SS_D_DP) VALUES (2018020606, '" + \
-        # tabvar[22] + "','" + tabvar[23] + "','" + tabvar[24] + "','" + tabvar[26] + "','" + tabvar[27] + "','" + tabvar[
-        #     28] + "','" + tabvar[30] + "','" + tabvar[31] + "','" + tabvar[32] + "','" + tabvar[34] + "','" + tabvar[
-        #     35] + "','" + tabvar[36] + "','" + tabvar[38] + "','" + tabvar[39] + "','" + tabvar[40] + "','" + tabvar[
-        #     42] + "','" + tabvar[43] + "','" + tabvar[44] + "','" + tabvar[46] + "','" + tabvar[47] + "','" + tabvar[
-        #     48] + "','" + tabvar[50] + "','" + tabvar[51] + "','" + tabvar[52] + "','" + tabvar[54] + "','" + tabvar[
-        #     55] + "','" + tabvar[56] + "','" + tabvar[58] + "','" + tabvar[59] + "','" + tabvar[60] + "','" + tabvar[
-        #     62] + "','" + tabvar[63] + "','" + tabvar[64] + "','" + tabvar[66] + "','" + tabvar[67] + "','" + tabvar[
-        #     68] + "')"
-        # mycursor.execute(sql)
-        # mydb.commit()
-        ############################################################
+        ############################################################################################################################################
         # sql = "INSERT INTO dqrreport_datasat (UID,QA_TS,QA_SS,QA_SP,QB_TS,QB_SS,QB_SP,QC_TS,QC_SS,QC_SP,QD_TS,QD_SS,QD_SP) VALUES (2018020606, '" + \
         # tabvar[70] + "','" + tabvar[71] + "','" + tabvar[72] + "','" + tabvar[74] + "','" + tabvar[75] + "','" + tabvar[
         #     76] + "','" + tabvar[78] + "','" + tabvar[79] + "','" + tabvar[80] + "','" + tabvar[82] + "','" + tabvar[
         #     83] + "','" + tabvar[84] + "')"
         # mycursor.execute(sql)
         # mydb.commit()
-        #####################################################################
+        #########################################################################################################################################
         # if b[0] != "date-obs" and b[1] == "time-obs" and b[2] == "date-end" and b[3] == "time-end" and b[4] == "obs_id" and b[5] == "exposure" and b[6] == "sourceid" and b[7] == "observer" and b[8] == "ra_pnt" and b[9] == "dec_pnt":
         #     sql = "INSERT INTO dqrreport_obsinfo (date_obs,time_obs,date_end,time_end,obs_id,exposure,sourceid,observer,ra_pnt,dec_pnt,UID) VALUES (' ', '" + obs[1] + "', '" + obs[2] + "', '" + obs[3] + "', '" + obs[4] + "', '" + obs[
         #               5] + "', '" + obs[6] + "', '" + obs[7] + "', '" + obs[8] + "', '" + obs[9] + "', 2018020606)"
@@ -264,7 +317,7 @@ class Spiderman(scrapy.Spider):
         #     sql = "INSERT INTO dqrreport_obsinfo (date_obs,time_obs,date_end,time_end,obs_id,exposure,sourceid,observer,ra_pnt,dec_pnt,UID) VALUES (' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ')"
         #     mycursor.execute(sql)
         #     mydb.commit()
-        ##############################
+        ####################################################################################################################################
 
 
 
