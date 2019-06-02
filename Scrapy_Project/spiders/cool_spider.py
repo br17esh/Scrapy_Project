@@ -46,7 +46,6 @@ class Spiderman(scrapy.Spider):
         tabvar = response.xpath("//table/tr/td/text()").extract()
         mode = response.xpath("//table/tr/th/text()").extract()
 
-        pprint(tabvar)
 
         ###########################################################################################################################################################
         # if(mode[3] == "Mode M9"):
