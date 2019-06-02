@@ -46,6 +46,8 @@ class Spiderman(scrapy.Spider):
         tabvar = response.xpath("//table/tr/td/text()").extract()
         mode = response.xpath("//table/tr/th/text()").extract()
 
+        pprint(tabvar)
+
         ###########################################################################################################################################################
         # if(mode[3] == "Mode M9"):
         #     sql = "INSERT INTO dqrreport_datainteg (UID,M9_A_BD,M9_A_TP,M9_A_DP,M9_B_BD,M9_B_TP,M9_B_DP,M9_C_BD,M9_C_TP,M9_C_DP,M9_D_BD,M9_D_TP,M9_D_DP,M0_A_BD,M0_A_TP,M0_A_DP,M0_B_BD,M0_B_TP,M0_B_DP,M0_C_BD,M0_C_TP,M0_C_DP,M0_D_BD,M0_D_TP,M0_D_DP,SS_A_BD,SS_A_TP,SS_A_DP,SS_B_BD,SS_B_TP,SS_B_DP,SS_C_BD,SS_C_TP,SS_C_DP,SS_D_BD,SS_D_TP,SS_D_DP) VALUES (2018020606, '" + \
@@ -117,9 +119,9 @@ class Spiderman(scrapy.Spider):
         # mydb.commit()
         ##################################################################################################################################################
         ###############################################################################################################################################
-        # sql = "INSERT INTO dqrreport_quadprop (UID,QP_QA1_MN,QP_QA1_MD,QP_QA1_SG,QP_QA2_MN,QP_QA2_MD,QP_QA2_SG,QP_QA3_MN,QP_QA3_MD,QP_QA3_SG,QP_QB1_MN,QP_QB1_MD,QP_QB1_SG,QP_QB2_MN,QP_QB2_MD,QP_QB2_SG,QP_QB3_MN,QP_QB3_MD,QP_QB3_SG,QP_QC1_MN,QP_QC1_MD,QP_QC1_SG,QP_QC2_MN,QP_QC2_MD,QP_QC2_SG,QP_QC3_MN,QP_QC3_MD,QP_QC3_SG,QP_QD1_MN,QP_QD1_MD,QP_QD1_SG,QP_QD2_MN,QP_QD2_MD,QP_QD2_SG,QP_QD3_MN,QP_QD3_MD,QP_QD3_SG) VALUES (2018020606,'"+tabvar[113]+"','"+tabvar[114]+"','"+tabvar[115]+"','"+tabvar[120]+"','"+tabvar[121]+"','"+tabvar[122]+"','"+tabvar[127]+"','"+tabvar[128]+"','"+tabvar[129]+"','"+tabvar[134]+"','"+tabvar[135]+"','"+tabvar[136]+"','"+tabvar[141]+"','"+tabvar[142]+"','"+tabvar[143]+"','"+tabvar[148]+"','"+tabvar[149]+"','"+tabvar[150]+"','"+tabvar[155]+"','"+tabvar[156]+"','"+tabvar[157]+"','"+tabvar[162]+"','"+tabvar[163]+"','"+tabvar[164]+"','"+tabvar[169]+"','"+tabvar[170]+"','"+tabvar[171]+"','"+tabvar[176]+"','"+tabvar[177]+"','"+tabvar[178]+"','"+tabvar[183]+"','"+tabvar[184]+"','"+tabvar[185]+"','"+tabvar[190]+"','"+tabvar[191]+"','"+tabvar[192]+"')"
-        # mycursor.execute(sql)
-        # mydb.commit()
+        sql = "INSERT INTO dqrreport_quadprop (UID,QP_QA1_MN,QP_QA1_MD,QP_QA1_SG,QP_QA2_MN,QP_QA2_MD,QP_QA2_SG,QP_QA3_MN,QP_QA3_MD,QP_QA3_SG,QP_QB1_MN,QP_QB1_MD,QP_QB1_SG,QP_QB2_MN,QP_QB2_MD,QP_QB2_SG,QP_QB3_MN,QP_QB3_MD,QP_QB3_SG,QP_QC1_MN,QP_QC1_MD,QP_QC1_SG,QP_QC2_MN,QP_QC2_MD,QP_QC2_SG,QP_QC3_MN,QP_QC3_MD,QP_QC3_SG,QP_QD1_MN,QP_QD1_MD,QP_QD1_SG,QP_QD2_MN,QP_QD2_MD,QP_QD2_SG,QP_QD3_MN,QP_QD3_MD,QP_QD3_SG) VALUES (2018020606,'"+tabvar[113]+"','"+tabvar[114]+"','"+tabvar[115]+"','"+tabvar[120]+"','"+tabvar[121]+"','"+tabvar[122]+"','"+tabvar[127]+"','"+tabvar[128]+"','"+tabvar[129]+"','"+tabvar[134]+"','"+tabvar[135]+"','"+tabvar[136]+"','"+tabvar[141]+"','"+tabvar[142]+"','"+tabvar[143]+"','"+tabvar[148]+"','"+tabvar[149]+"','"+tabvar[150]+"','"+tabvar[155]+"','"+tabvar[156]+"','"+tabvar[157]+"','"+tabvar[162]+"','"+tabvar[163]+"','"+tabvar[164]+"','"+tabvar[169]+"','"+tabvar[170]+"','"+tabvar[171]+"','"+tabvar[176]+"','"+tabvar[177]+"','"+tabvar[178]+"','"+tabvar[183]+"','"+tabvar[184]+"','"+tabvar[185]+"','"+tabvar[190]+"','"+tabvar[191]+"','"+tabvar[192]+"')"
+        mycursor.execute(sql)
+        mydb.commit()
         #################################################################################################################################################
         # global housekeep
         #
