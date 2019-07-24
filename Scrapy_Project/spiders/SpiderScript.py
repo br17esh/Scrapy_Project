@@ -127,17 +127,7 @@ class Spiderman(scrapy.Spider):
                 mycursor.execute(sql)
                 mydb.commit()
             #######################################################################################################################################
-            # sql = "INSERT INTO mg_dqrreport_datainteg (UID,M9_A_BD,M9_A_TP,M9_A_DP,M9_B_BD,M9_B_TP,M9_B_DP,M9_C_BD,M9_C_TP,M9_C_DP,M9_D_BD,M9_D_TP,M9_D_DP,M0_A_BD,M0_A_TP,M0_A_DP,M0_B_BD,M0_B_TP,M0_B_DP,M0_C_BD,M0_C_TP,M0_C_DP,M0_D_BD,M0_D_TP,M0_D_DP,SS_A_BD,SS_A_TP,SS_A_DP,SS_B_BD,SS_B_TP,SS_B_DP,SS_C_BD,SS_C_TP,SS_C_DP,SS_D_BD,SS_D_TP,SS_D_DP) VALUES ('"+UnID+"', '" + \
-            # tabvar[22] + "','" + tabvar[23] + "','" + tabvar[24] + "','" + tabvar[26] + "','" + tabvar[27] + "','" + tabvar[
-            #     28] + "','" + tabvar[30] + "','" + tabvar[31] + "','" + tabvar[32] + "','" + tabvar[34] + "','" + tabvar[
-            #     35] + "','" + tabvar[36] + "','" + tabvar[38] + "','" + tabvar[39] + "','" + tabvar[40] + "','" + tabvar[
-            #     42] + "','" + tabvar[43] + "','" + tabvar[44] + "','" + tabvar[46] + "','" + tabvar[47] + "','" + tabvar[
-            #     48] + "','" + tabvar[50] + "','" + tabvar[51] + "','" + tabvar[52] + "','" + tabvar[54] + "','" + tabvar[
-            #     55] + "','" + tabvar[56] + "','" + tabvar[58] + "','" + tabvar[59] + "','" + tabvar[60] + "','" + tabvar[
-            #     62] + "','" + tabvar[63] + "','" + tabvar[64] + "','" + tabvar[66] + "','" + tabvar[67] + "','" + tabvar[
-            #     68] + "')"
-            # mycursor.execute(sql)
-            # mydb.commit()
+
             ##############################################################################################################################################
             sql = "INSERT INTO mg_dqrreport_pixelprop (UID,PP_QA1_DID,PP_QA1_PID,PP_QA1_CNT,PP_QA1_SG,PP_QA2_DID,PP_QA2_PID,PP_QA2_CNT,PP_QA2_SG,PP_QA3_DID,PP_QA3_PID,PP_QA3_CNT,PP_QA3_SG,PP_QB1_DID,PP_QB1_PID,PP_QB1_CNT,PP_QB1_SG,PP_QB2_DID,PP_QB2_PID,PP_QB2_CNT,PP_QB2_SG,PP_QB3_DID,PP_QB3_PID,PP_QB3_CNT,PP_QB3_SG,PP_QC1_DID,PP_QC1_PID,PP_QC1_CNT,PP_QC1_SG,PP_QC2_DID,PP_QC2_PID,PP_QC2_CNT,PP_QC2_SG,PP_QC3_DID,PP_QC3_PID,PP_QC3_CNT,PP_QC3_SG,PP_QD1_DID,PP_QD1_PID,PP_QD1_CNT,PP_QD1_SG,PP_QD2_DID,PP_QD2_PID,PP_QD2_CNT,PP_QD2_SG,PP_QD3_DID,PP_QD3_PID,PP_QD3_CNT,PP_QD3_SG) VALUES ('"+UnID+"','"+tabvar[109]+"','"+tabvar[110]+"','"+tabvar[111]+"','"+tabvar[112]+"','"+tabvar[116]+"','"+tabvar[117]+"','"+tabvar[118]+"','"+tabvar[119]+"','"+tabvar[123]+"','"+tabvar[124]+"','"+tabvar[125]+"','"+tabvar[126]+"','"+tabvar[130]+"','"+tabvar[131]+"','"+tabvar[132]+"','"+tabvar[133]+"','"+tabvar[137]+"','"+tabvar[138]+"','"+tabvar[139]+"','"+tabvar[140]+"','"+tabvar[144]+"','"+tabvar[145]+"','"+tabvar[146]+"','"+tabvar[147]+"','"+tabvar[151]+"','"+tabvar[152]+"','"+tabvar[153]+"','"+tabvar[154]+"','"+tabvar[158]+"','"+tabvar[159]+"','"+tabvar[160]+"','"+tabvar[161]+"','"+tabvar[165]+"','"+tabvar[166]+"','"+tabvar[167]+"','"+tabvar[168]+"','"+tabvar[172]+"','"+tabvar[173]+"','"+tabvar[174]+"','"+tabvar[175]+"','"+tabvar[179]+"','"+tabvar[180]+"','"+tabvar[181]+"','"+tabvar[182]+"','"+tabvar[186]+"','"+tabvar[187]+"','"+tabvar[188]+"','"+tabvar[189]+"')"
             mycursor.execute(sql)
